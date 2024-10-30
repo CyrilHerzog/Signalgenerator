@@ -1,0 +1,686 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Wed Oct 30 13:21:53 2024
+# Process ID: 3028
+# Current directory: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator
+# Command line: vivado.exe -mode batch -source build.tcl
+# Log file: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/vivado.log
+# Journal file: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator\vivado.jou
+# Running On: Acer-Spin, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 12, Host memory: 16870 MB
+#-----------------------------------------------------------
+source build.tcl
+# set outputDir ./output
+# file mkdir $outputDir
+# read_verilog { ./src/hdl/top/top.v}
+read_verilog: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 434.094 ; gain = 166.617
+# read_xdc ./src/Zybo-Z7-Master.xdc
+# synth_design -top top -part xc7z010clg400-1
+Command: synth_design -top top -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 9912
+WARNING: [Synth 8-9926] potential always loop found [src/hdl/ramp/signal_generator.v:111]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1249.434 ; gain = 408.117
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:27]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:42]
+INFO: [Synth 8-6157] synthesizing module 'clock_source_pll' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/clock_source/clock_source_pll.v:12]
+INFO: [Synth 8-6157] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:71768]
+INFO: [Synth 8-6155] done synthesizing module 'IBUF' (0#1) [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:71768]
+INFO: [Synth 8-6157] synthesizing module 'PLLE2_BASE' [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:109492]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT bound to: 36 - type: integer 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKIN1_PERIOD bound to: 8.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE bound to: 18 - type: integer 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT1_DIVIDE bound to: 9 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: double 
+	Parameter DIVCLK_DIVIDE bound to: 5 - type: integer 
+	Parameter REF_JITTER1 bound to: 0.000000 - type: double 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'PLLE2_BASE' (0#1) [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:109492]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1519]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [C:/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1519]
+INFO: [Synth 8-6155] done synthesizing module 'clock_source_pll' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/clock_source/clock_source_pll.v:12]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:56]
+INFO: [Synth 8-6157] synthesizing module 'async_reset' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/cdc/async_reset.v:14]
+	Parameter STAGES bound to: 6 - type: integer 
+	Parameter INIT bound to: 1'b0 
+	Parameter RST_VAL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'async_reset' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/cdc/async_reset.v:14]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:67]
+INFO: [Synth 8-6157] synthesizing module 'synchronizer' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/cdc/synchronizer.v:15]
+	Parameter STAGES bound to: 2 - type: integer 
+	Parameter INIT bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'synchronizer' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/cdc/synchronizer.v:15]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:78]
+INFO: [Synth 8-6157] synthesizing module 'simple_filter' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/simple_filter.v:13]
+	Parameter FILTER_WIDTH bound to: 4 - type: integer 
+	Parameter INIT_VAL bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'simple_filter' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/simple_filter.v:13]
+INFO: [Synth 8-6157] synthesizing module 'pc_interface_top' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_top.v:23]
+	Parameter CLK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter UART_BAUDRATE bound to: 115200 - type: integer 
+	Parameter UART_STOP_BITS bound to: 1 - type: integer 
+	Parameter UART_PARITY bound to: 3 - type: integer 
+	Parameter UART_FIFO_TX_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter UART_FIFO_RX_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter BANK_DATA_WIDTH bound to: 16 - type: integer 
+	Parameter BANK_ADDR_WIDTH bound to: 2 - type: integer 
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_top.v:50]
+INFO: [Synth 8-6157] synthesizing module 'async_reset__parameterized0' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/cdc/async_reset.v:14]
+	Parameter STAGES bound to: 2 - type: integer 
+	Parameter INIT bound to: 1'b0 
+	Parameter RST_VAL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'async_reset__parameterized0' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/cdc/async_reset.v:14]
+INFO: [Synth 8-6157] synthesizing module 'uart_transceiver' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_transceiver.v:22]
+	Parameter F_CLK bound to: 50000000 - type: integer 
+	Parameter BAUDRATE bound to: 115200 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter STOP_BITS bound to: 1 - type: integer 
+	Parameter PARITY bound to: 3 - type: integer 
+	Parameter FIFO_TX_ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter FIFO_RX_ADDR_WIDTH bound to: 4 - type: integer 
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_transceiver.v:49]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_rx.v:16]
+	Parameter F_CLK bound to: 50000000 - type: integer 
+	Parameter BAUDRATE bound to: 115200 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter STOP_BITS bound to: 1 - type: integer 
+	Parameter PARITY bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_rx.v:16]
+INFO: [Synth 8-6157] synthesizing module 'sync_fifo' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sync_fifo.v:14]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync_fifo' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sync_fifo.v:14]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_tx.v:16]
+	Parameter F_CLK bound to: 50000000 - type: integer 
+	Parameter BAUDRATE bound to: 115200 - type: integer 
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter STOP_BITS bound to: 1 - type: integer 
+	Parameter PARITY bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_tx.v:16]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_transceiver.v:95]
+INFO: [Synth 8-6157] synthesizing module 'sr_ff' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sr_ff.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'sr_ff' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sr_ff.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'uart_transceiver' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/uart/uart_transceiver.v:22]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_top.v:99]
+INFO: [Synth 8-6157] synthesizing module 'pc_interface_handler' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_handler.v:17]
+	Parameter BANK_DATA_WIDTH bound to: 16 - type: integer 
+	Parameter BANK_ADDR_WIDTH bound to: 2 - type: integer 
+	Parameter UART_TIMEOUT_WIDTH bound to: 21 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc_interface_handler' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_handler.v:17]
+INFO: [Synth 8-6157] synthesizing module 'pc_interface_write_bank' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_write_bank.v:13]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'register' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/register.v:13]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'register' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/register.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'pc_interface_write_bank' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_write_bank.v:13]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_top.v:131]
+INFO: [Synth 8-6157] synthesizing module 'pc_interface_read_bank' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_read_bank.v:13]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc_interface_read_bank' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_read_bank.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'pc_interface_top' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_top.v:23]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:137]
+INFO: [Synth 8-6157] synthesizing module 'sin_cos_generator_top' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:25]
+	Parameter F_CLK bound to: 50000000 - type: integer 
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:44]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:54]
+INFO: [Synth 8-6157] synthesizing module 'phase_accumulator' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/phase_accumulator.v:18]
+	Parameter F_CLK bound to: 50000000 - type: integer 
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/phase_accumulator.v:41]
+INFO: [Synth 8-6157] synthesizing module 'cla_24' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:64]
+INFO: [Synth 8-6157] synthesizing module 'cla_16' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:109]
+INFO: [Synth 8-6157] synthesizing module 'pfa' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:287]
+INFO: [Synth 8-6155] done synthesizing module 'pfa' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:287]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:151]
+INFO: [Synth 8-6157] synthesizing module 'gp_4' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:320]
+INFO: [Synth 8-6155] done synthesizing module 'gp_4' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:320]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:161]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:170]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:179]
+INFO: [Synth 8-6155] done synthesizing module 'cla_16' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:109]
+INFO: [Synth 8-6157] synthesizing module 'cla_8' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:208]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:245]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:255]
+INFO: [Synth 8-6157] synthesizing module 'gp_2' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:302]
+INFO: [Synth 8-6155] done synthesizing module 'gp_2' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:302]
+INFO: [Synth 8-6155] done synthesizing module 'cla_8' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:208]
+INFO: [Synth 8-6155] done synthesizing module 'cla_24' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/carry_lookahead_adder.v:64]
+INFO: [Synth 8-6155] done synthesizing module 'phase_accumulator' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/phase_accumulator.v:18]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:64]
+INFO: [Synth 8-6157] synthesizing module 'cordic' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:19]
+WARNING: [Synth 8-693] zero replication count - replication ignored [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:112]
+WARNING: [Synth 8-693] zero replication count - replication ignored [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:113]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:83]
+INFO: [Synth 8-6155] done synthesizing module 'cordic' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:19]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:78]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:89]
+INFO: [Synth 8-6155] done synthesizing module 'sin_cos_generator_top' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/sin_cos_generator_top.v:25]
+INFO: [Synth 8-6157] synthesizing module 'SPI_MASTER' [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/spi/SPI_MASTER.v:25]
+	Parameter CPHA bound to: 0 - type: integer 
+	Parameter CPOL bound to: 0 - type: integer 
+	Parameter TRANSFER_FREQUENCY bound to: 1000000 - type: integer 
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter BOARD_FREQUENCY bound to: 50000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'SPI_MASTER' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/spi/SPI_MASTER.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:27]
+WARNING: [Synth 8-6014] Unused sequential element r_timeout_reg was removed.  [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/pc_interface/pc_interface_handler.v:85]
+WARNING: [Synth 8-6014] Unused sequential element r_spi_data_reg was removed.  [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:163]
+WARNING: [Synth 8-3848] Net led in module/entity top does not have driver. [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:38]
+WARNING: [Synth 8-7129] Port led[3] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module top is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1368.820 ; gain = 527.504
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1368.820 ; gain = 527.504
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1368.820 ; gain = 527.504
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.154 . Memory (MB): peak = 1368.820 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/Zybo-Z7-Master.xdc]
+Finished Parsing XDC File [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/Zybo-Z7-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/Zybo-Z7-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Timing 38-2] Deriving generated clocks
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1477.746 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  PLLE2_BASE => PLLE2_ADV: 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 1477.746 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1477.746 ; gain = 636.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1477.746 ; gain = 636.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1477.746 ; gain = 636.430
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'pc_interface_handler'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg_reg' in module 'SPI_MASTER'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                  S_IDLE |                    0000000000001 |                    0000000000001
+                 S_START |                    0000000000010 |                    0000000000010
+            S_START_WAIT |                    0000000000100 |                    0000000000100
+                  S_DATA |                    0000000001000 |                    0000000001000
+                 S_SHIFT |                    0000000010000 |                    0000000010000
+             S_DATA_WAIT |                    0000000100000 |                    0000000100000
+            S_STOP_CHECK |                    0000001000000 |                    0000001000000
+           S_FRAME_ERROR |                    0100000000000 |                    0100000000000
+             S_STOP_WAIT |                    0000010000000 |                    0000010000000
+                  S_STOP |                    0000100000000 |                    0000100000000
+                S_PARITY |                    0001000000000 |                    0001000000000
+                  S_DONE |                    0010000000000 |                    0010000000000
+          S_PARITY_ERROR |                    1000000000000 |                    1000000000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'r_state_reg' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                  S_IDLE |                           000001 |                           000001
+                 S_START |                           000010 |                           000010
+                 S_FRAME |                           000100 |                           000100
+                 S_SHIFT |                           001000 |                           001000
+                  S_WAIT |                           010000 |                           010000
+                  S_DONE |                           100000 |                           100000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'r_state_reg' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                  S_IDLE |                        000000001 |                        000000001
+            S_CMD_DECODE |                        000000010 |                        000000010
+               S_RW_BANK |                        000000100 |                        000000100
+         S_WAIT_PC_VALID |                        000001000 |                        000001000
+               S_READ_PC |                        000100000 |                        000100000
+            S_WRITE_BANK |                        010000000 |                        010000000
+         S_WAIT_PC_READY |                        000010000 |                        000010000
+              S_WRITE_PC |                        001000000 |                        001000000
+             S_READ_BANK |                        100000000 |                        100000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'r_state_reg' in module 'pc_interface_handler'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 |                               00
+                   delay |                               01 |                               01
+                  clk_t1 |                               10 |                               10
+                  clk_t2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg_reg' using encoding 'sequential' in module 'SPI_MASTER'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:22 . Memory (MB): peak = 1477.746 ; gain = 636.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 8     
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 1     
+	   2 Input    1 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 4601  
++---XORs : 
+	                8 Bit    Wide XORs := 2     
+	                2 Bit    Wide XORs := 1     
++---Registers : 
+	               24 Bit    Registers := 70    
+	               23 Bit    Registers := 1     
+	               16 Bit    Registers := 14    
+	               11 Bit    Registers := 2     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 15    
++---RAMs : 
+	              128 Bit	(16 X 8 bit)          RAMs := 2     
++---Muxes : 
+	   2 Input   24 Bit        Muxes := 8     
+	  10 Input   16 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 9     
+	   4 Input   16 Bit        Muxes := 2     
+	  14 Input   13 Bit        Muxes := 1     
+	   2 Input   13 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 1     
+	   4 Input   11 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 4     
+	  10 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 4     
+	   4 Input    8 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   7 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 4     
+	  10 Input    2 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 21    
+	  14 Input    1 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 1     
+	  10 Input    1 Bit        Muxes := 7     
+	   4 Input    1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-6026] Ignoring keep related attribute (keep/mark_debug/dont_touch) applied on memory [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sync_fifo.v:47]
+WARNING: [Synth 8-6026] Ignoring keep related attribute (keep/mark_debug/dont_touch) applied on memory [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sync_fifo.v:47]
+WARNING: [Synth 8-7129] Port led[3] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[2] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[1] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port led[0] in module top is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:37 . Memory (MB): peak = 1477.746 ; gain = 636.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+---------------------------------------------------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object                                                          | Inference | Size (Depth x Width) | Primitives  | 
++------------+---------------------------------------------------------------------+-----------+----------------------+-------------+
+|top         | inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg | Implied   | 16 x 8               | RAM32M x 2  | 
+|top         | inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_tx/r_ram_reg | Implied   | 16 x 8               | RAM32M x 2  | 
++------------+---------------------------------------------------------------------+-----------+----------------------+-------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:43 . Memory (MB): peak = 1477.746 ; gain = 636.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:45 . Memory (MB): peak = 1495.656 ; gain = 654.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++------------+---------------------------------------------------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object                                                          | Inference | Size (Depth x Width) | Primitives  | 
++------------+---------------------------------------------------------------------+-----------+----------------------+-------------+
+|top         | inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg | Implied   | 16 x 8               | RAM32M x 2  | 
+|top         | inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_tx/r_ram_reg | Implied   | 16 x 8               | RAM32M x 2  | 
++------------+---------------------------------------------------------------------+-----------+----------------------+-------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:50 . Memory (MB): peak = 1573.176 ; gain = 731.859
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:27]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:27]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:27]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/top/top.v:27]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/divers/sync_fifo.v:44]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:69]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:67]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/hdl/sin_cos_generator/cordic.v:68]
+INFO: [Common 17-14] Message 'Synth 8-5396' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:54 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:54 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:56 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:56 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:56 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:56 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUF        |   332|
+|2     |BUFG       |     2|
+|3     |LUT1       |   120|
+|4     |LUT2       |   369|
+|5     |LUT3       |  1116|
+|6     |LUT4       |  1891|
+|7     |LUT5       |  1300|
+|8     |LUT6       |  1299|
+|9     |PLLE2_BASE |     1|
+|10    |RAM32M     |     2|
+|11    |RAM32X1D   |     4|
+|12    |FDCE       |  2051|
+|13    |FDPE       |    15|
+|14    |FDRE       |     6|
+|15    |IBUF       |     2|
+|16    |OBUF       |     4|
+|17    |OBUFT      |     5|
++------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:56 . Memory (MB): peak = 1586.699 ; gain = 745.383
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2085 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:52 . Memory (MB): peak = 1586.699 ; gain = 636.457
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:56 . Memory (MB): peak = 1586.699 ; gain = 745.383
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.109 . Memory (MB): peak = 1594.754 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 339 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/Zybo-Z7-Master.xdc]
+Finished Parsing XDC File [C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/src/Zybo-Z7-Master.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1602.410 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 339 instances were transformed.
+  BUF => LUT1: 332 instances
+  PLLE2_BASE => PLLE2_ADV: 1 instance 
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 2 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 4 instances
+
+Synth Design complete | Checksum: f3aea7aa
+INFO: [Common 17-83] Releasing license: Synthesis
+85 Infos, 140 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:01:14 . Memory (MB): peak = 1602.410 ; gain = 1168.316
+# write_checkpoint -force $outputDir/post_synth.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1602.410 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/output/post_synth.dcp' has been generated.
+# report_timing_summary -file $outputDir/post_synth_timing_summary.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-2] Deriving generated clocks
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+# report_utilization -file $outputDir/post_synth_util.rpt
+# opt_design
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net inst_sin_cos_generator_top/inst_cordic/inst_inc_xy/inst_cla_16/inst_gp4_0/<const1> has multiple drivers: inst_sin_cos_generator_top/inst_cordic/inst_inc_xy/inst_cla_16/inst_gp4_0/i_0/O, inst_sin_cos_generator_top/inst_cordic/inst_inc_xy/inst_cla_16/inst_gp4_0/i_1/O, and inst_sin_cos_generator_top/inst_cordic/inst_inc_xy/inst_cla_16/inst_gp4_0/VCC/P.
+INFO: [Project 1-461] DRC finished with 1 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1729.617 ; gain = 35.680
+INFO: [Common 17-83] Releasing license: Implementation
+5 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+opt_design failed
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+    while executing
+"opt_design"
+    (file "build.tcl" line 26)
+INFO: [Common 17-206] Exiting Vivado at Wed Oct 30 13:23:32 2024...
