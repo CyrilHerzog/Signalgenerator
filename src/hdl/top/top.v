@@ -18,10 +18,9 @@
 
 //
 `include "src/hdl/spi/SPI_MASTER.v"
-`include "src/hdl/sin_cos_generator/sin_cos_generator_top.v"
 
 //
-`include "src/hdl/ramp/signal_generator.v"
+`include "src/hdl/top/signal_generator.v"
 
 
 module top(
@@ -101,75 +100,52 @@ module top(
         .o_pc_tx                 (uart_tx), 
         .o_pc_err                (),
         // BANK
-        .i_bank_data             ({inst_pc_interface_top.o_bank_data[63:48], 
-                                   inst_pc_interface_top.o_bank_data[47:32],
-                                   inst_pc_interface_top.o_bank_data[31:16],
+        .i_bank_data             ({16'b0, 
+                                   16'b0,
+                                   16'b0,
                                    inst_pc_interface_top.o_bank_data[15:0]}),            
         .o_bank_data             ()
     );
 
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
+
 
 signal_generator inst_signal_generator (
     .clk        (inst_pll.o_bufg_clk_50),
     .rst_n      (inst_sys_arst_n.o_rst),
     .on         (1'b1),
-    .frequency  (16'h03ff),
+    .frequency  (inst_pc_interface_top.o_bank_data[47:32]),
     .amplitude  (16'h00ff),
-    .duty_cycle (8'd50),
-    .sel        (2'b00), // 00 rechteck 01 sägezahn , 10 sin
+    .duty_cycle (inst_pc_interface_top.o_bank_data[55:48]),
+    .sel        (inst_pc_interface_top.o_bank_data[17:16]), // 00 rechteck 01 sägezahn , 10 sin
     .led_on     (led[0]),
     .led_rect   (led[1]),
     .led_ramp   (led[2]),
     .led_sin    (led[3]),
     .signal_out ()
 );
-*/
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//(* DONT_TOUCH = "yes" *)
-sin_cos_generator_top #(
-    .F_CLK          (50_000_000)
-) inst_sin_cos_generator_top (
-    .i_clk          (inst_pll.o_bufg_clk_50), 
-    .i_arst_n       (inst_sys_arst_n.o_rst),
-    .i_enable       (1'b1),
-    .i_amplitude    (24'd5093852), // (2^15 - 1) / 1.64676 24'd5093852
-    .i_phase_offset (24'd0), // pi = 8388
-    .i_amp_offset   (16'd32767),
-    .o_cos          (),
-    .o_sin          (),
-    .o_valid        ()
-);
-
-  
 
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SPI
 
-reg[3:0] r_pulse;
+reg [1:0] r_pulse;
 wire spi_enable;
-reg[15:0] r_spi_data;
-wire[15:0] ri_spi_data;
+
 
 always@(posedge inst_pll.o_bufg_clk_50) begin 
     r_pulse <= r_pulse + 1;
-    r_spi_data <= ri_spi_data;
 end
 
 assign spi_enable = &r_pulse;
-assign ri_spi_data = &r_pulse ? r_spi_data + 1 : r_spi_data;
+
 
 SPI_MASTER #(
     .CPHA               (0),
 	.CPOL               (0),
-	.TRANSFER_FREQUENCY (1000000),
+	.TRANSFER_FREQUENCY (10000000),
 	.DATA_WIDTH         (16),
 	.BOARD_FREQUENCY    (50000000)
 ) inst_spi_master (
@@ -181,7 +157,7 @@ SPI_MASTER #(
 	.SCLK               (dac_spi_sclk),
     .SDO                (dac_spi_sdo),
     .SS                 (dac_spi_cs),
-	.DATA_IN            (inst_sin_cos_generator_top.o_cos),
+	.DATA_IN            (inst_signal_generator.signal_out),
 	.DATA_OUT           (),
 	.DONE               ()  
 );
