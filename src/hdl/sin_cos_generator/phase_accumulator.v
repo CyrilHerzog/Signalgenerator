@@ -14,12 +14,14 @@
 `define _PHASE_ACCUMULATOR_V_
 
 `include "src/hdl/sin_cos_generator/carry_lookahead_adder.v"
+`include "src/hdl/sin_cos_generator/barrel_shifter.v"
 
 module phase_accumulator #(
     parameter F_CLK = 50_000_000
 ) (
     input wire i_clk, i_arst_n,
     input wire i_enable,
+    input wire[4:0] i_freq,
     input wire [23:0] i_offset,
     output wire [23:0] o_angle,
     output wire o_valid
@@ -28,7 +30,7 @@ module phase_accumulator #(
 
 
     // MIN STEP
-    localparam phase_step = ((3 * (1 << 24)) << 16) / F_CLK;
+    localparam phase_step = ((3 * (1 << 24))) / F_CLK;
 
 
     //
@@ -41,12 +43,15 @@ module phase_accumulator #(
     cla_24 inst_adder (
         .i_c    (1'b0),
         .i_a    (r_accu),
-        .i_b    (phase_step[23:0]),
+        .i_b    (inst_shifter.o_data),
         .o_s    (),
         .o_c    (),
         .o_g    (),
         .o_p    ()
     );
+
+
+    barrel_shifter_32 inst_shifter(.i_data({8'b0, phase_step[23:0]}), .i_shift(i_freq), .o_data());
 
 
     always@(posedge i_clk, negedge i_arst_n)

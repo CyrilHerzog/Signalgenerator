@@ -16,6 +16,33 @@
 `define _BARREL_SHIFTER_V_
 
 
+/*
+module barrel_shifter_32 (
+    input wire [31:0] i_data,
+    input wire [4:0] i_shift,
+    output wire [31:0] o_data
+);
+
+   
+
+    
+    // STAGE 0
+    mux_2x1 #(32) inst_mux_stage_0 (.i_a(i_data), .i_b({{16{i_data[31]}}, i_data[31:16]}), .i_sel(i_shift[4]));
+    // STAGE 1
+    mux_2x1 #(32) inst_mux_stage_1 (.i_a(inst_mux_stage_0.o_y), .i_b({{8{i_data[31]}}, inst_mux_stage_0.o_y[31:8]}), .i_sel(i_shift[3]));
+    // STAGE 2
+    mux_2x1 #(32) inst_mux_stage_2 (.i_a(inst_mux_stage_1.o_y), .i_b({{4{i_data[31]}}, inst_mux_stage_1.o_y[31:4]}), .i_sel(i_shift[2]));
+    // STAGE 3
+    mux_2x1 #(32) inst_mux_stage_3 (.i_a(inst_mux_stage_2.o_y), .i_b({{2{i_data[31]}}, inst_mux_stage_2.o_y[31:2]}), .i_sel(i_shift[1]));
+    // STAGE 4
+    mux_2x1 #(32) inst_mux_stage_4 (.i_a(inst_mux_stage_3.o_y), .i_b({i_data[15], inst_mux_stage_3.o_y[31:1]}), .i_sel(i_shift[0]));
+
+
+    // output
+    assign o_data = inst_mux_stage_4.o_y;
+    
+endmodule
+*/
 
 module barrel_shifter_32 (
     input wire [31:0] i_data,
