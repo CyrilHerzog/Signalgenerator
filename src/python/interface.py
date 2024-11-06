@@ -23,6 +23,19 @@ import random
 import time
 
 
+
+
+#
+SIGNAL_TYPE = 2      #1 2
+FREQUENCY   = 10  # 10  #0x0fff
+DUTY_CYCLE  = 10
+
+
+
+
+
+
+
 ################################################################################################################
 # constant's
 SINGLE_WRITE = 0b10000000
@@ -59,10 +72,10 @@ try:
     # echo - test write and read two random bytes
     random_bytes = generate_random_numbers(2)   
     print(f"send data (dec): {random_bytes}")
-    ser.write(bytes([reverse_bits(SINGLE_WRITE) | 0b11000000])) 
+    ser.write(bytes([reverse_bits(SINGLE_WRITE) | 0b00000000])) 
     ser.write(bytes(random_bytes))  
 
-    ser.write(bytes([reverse_bits(SINGLE_READ) | 0b11000000]))
+    ser.write(bytes([reverse_bits(SINGLE_READ) | 0b00000000]))
     response = ser.read(2) 
     
     # check response
@@ -75,6 +88,27 @@ try:
 
     # wait    
     time.sleep(1)
+
+    ser.write(bytes([reverse_bits(SINGLE_WRITE) | 0b10000000])) 
+    ser.write(bytes([0b00000000]))
+    ser.write(bytes([reverse_bits(SIGNAL_TYPE)])) 
+
+    time.sleep(1)
+
+    ser.write(bytes([reverse_bits(SINGLE_WRITE) | 0b01000000])) 
+    ser.write(bytes([reverse_bits((FREQUENCY >> 8) & 0xFF)]))
+    ser.write(bytes([reverse_bits(FREQUENCY & 0xFF)]))  
+
+
+    time.sleep(1)
+
+    ser.write(bytes([reverse_bits(SINGLE_WRITE) | 0b11000000])) 
+    ser.write(bytes([0b00000000])) 
+    ser.write(bytes([reverse_bits(DUTY_CYCLE)])) 
+
+
+
+
 
 
 finally:
