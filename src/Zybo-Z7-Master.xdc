@@ -195,4 +195,5 @@ set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { uart_r
 #set_property PACKAGE_PIN W9 [get_ports {netic19_w9}]; #IO_L16N_T2_13
 #set_property PACKAGE_PIN Y9 [get_ports {netic19_y9}]; #IO_L14P_T2_SRCC_13
 
-
+# async reset
+set_false_path -from [get_pins -hier -filter {name =~ "*r_rst_reg*/C"}]
