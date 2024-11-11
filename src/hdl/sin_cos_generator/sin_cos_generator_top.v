@@ -22,17 +22,15 @@
 `include "src/hdl/cdc/async_reset.v"
 
 
-module sin_cos_generator_top #(
-    parameter F_CLK = 50_000_000
-)(
+module sin_cos_generator_top (
     input wire i_clk, i_arst_n,
     input wire i_enable,
-    input wire [4:0] i_freq,
+    input wire [11:0] i_frequency,
     input wire [23:0] i_amplitude,
-    input wire[23:0] i_phase_offset,
-    input wire[15:0] i_amp_offset,
-    output wire[15:0] o_cos,
-    output wire[15:0] o_sin,
+    input wire [23:0] i_phase_offset,
+    input wire [15:0] i_amp_offset,
+    output wire [15:0] o_cos,
+    output wire [15:0] o_sin,
     output wire o_valid
 );
 
@@ -50,30 +48,28 @@ async_reset #(
 
 
 // PHASE ACCUMULATOR
-phase_accumulator #(
-    .F_CLK      (F_CLK)  
-) inst_phase_accumulator (
-    .i_clk      (i_clk),
-    .i_arst_n   (inst_arst_n.o_rst),
-    .i_enable   (i_enable),
-    .i_freq     (i_freq),
-    .i_offset   (i_phase_offset),
-    .o_angle    (),
-    .o_valid    ()
+phase_accumulator inst_phase_accumulator (
+    .i_clk          (i_clk),
+    .i_arst_n       (inst_arst_n.o_rst),
+    .i_enable       (i_enable),
+    .i_frequency    (i_frequency),
+    .i_offset       (i_phase_offset),
+    .o_angle        (),
+    .o_valid        ()
 );
 
 // CORDIC
 cordic inst_cordic(
-    .i_clk    (i_clk),
-    .i_arst_n (inst_arst_n.o_rst),
-    .i_valid  (inst_phase_accumulator.o_valid),
-    .i_x      (i_amplitude),
-    .i_y      (24'd0), // 0
-    .i_z      (inst_phase_accumulator.o_angle),
-    .o_x      (),
-    .o_y      (),
-    .o_z      (),
-    .o_valid  ()
+    .i_clk      (i_clk),
+    .i_arst_n   (inst_arst_n.o_rst),
+    .i_valid    (inst_phase_accumulator.o_valid),
+    .i_x        (i_amplitude),
+    .i_y        (24'd0), // 0
+    .i_z        (inst_phase_accumulator.o_angle),
+    .o_x        (),
+    .o_y        (),
+    .o_z        (),
+    .o_valid    ()
 );
 
 // ADD AMPLITUDE OFFSET FOR COSINUS
