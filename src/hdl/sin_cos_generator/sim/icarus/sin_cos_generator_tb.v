@@ -55,7 +55,7 @@ sin_cos_generator_top dut_sin_cos_generator_top (
     .i_enable       (sim_enable),
     .i_frequency    (12'd3800), // 3 - 4095 Hz
     .i_amplitude    (24'd5093852), // (2^15 - 1) / 1.64676
-    .i_phase_offset (24'd0), // pi = 8388
+    .i_phase_offset (24'd0),
     .i_amp_offset   (16'd32768),
     .o_cos          (),
     .o_sin          (),
