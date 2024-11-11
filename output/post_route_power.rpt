@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Wed Oct 30 13:33:27 2024
+| Date             : Mon Nov 11 14:35:45 2024
 | Host             : Acer-Spin running 64-bit major release  (build 9200)
 | Command          : report_power -file ./output/post_route_power.rpt
 | Design           : top
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.290        |
+| Total On-Chip Power (W)  | 0.294        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.195        |
+| Dynamic (W)              | 0.199        |
 | Device Static (W)        | 0.095        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 81.7         |
-| Junction Temperature (C) | 28.3         |
+| Max Ambient (C)          | 81.6         |
+| Junction Temperature (C) | 28.4         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,18 +52,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.010 |        5 |       --- |             --- |
-| Slice Logic              |     0.051 |     8912 |       --- |             --- |
-|   LUT as Logic           |     0.050 |     5147 |     17600 |           29.24 |
-|   Register               |    <0.001 |     2028 |     35200 |            5.76 |
+| Clocks                   |     0.011 |        5 |       --- |             --- |
+| Slice Logic              |     0.053 |     9444 |       --- |             --- |
+|   LUT as Logic           |     0.052 |     5443 |     17600 |           30.93 |
+|   Register               |    <0.001 |     2119 |     35200 |            6.02 |
+|   CARRY4                 |    <0.001 |       22 |      4400 |            0.50 |
 |   LUT as Distributed RAM |    <0.001 |       12 |      6000 |            0.20 |
-|   CARRY4                 |    <0.001 |        1 |      4400 |            0.02 |
-|   Others                 |     0.000 |       29 |       --- |             --- |
-| Signals                  |     0.032 |     6603 |       --- |             --- |
+|   Others                 |     0.000 |       30 |       --- |             --- |
+| Signals                  |     0.034 |     7019 |       --- |             --- |
 | PLL                      |     0.100 |        1 |         2 |           50.00 |
 | I/O                      |     0.002 |       11 |       100 |           11.00 |
 | Static Power             |     0.095 |          |           |                 |
-| Total                    |     0.290 |          |           |                 |
+| Total                    |     0.294 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.105 |       0.101 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.110 |       0.106 |      0.004 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.057 |       0.051 |      0.006 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -148,41 +148,15 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------------------------+-----------+
-| Name                          | Power (W) |
-+-------------------------------+-----------+
-| top                           |     0.195 |
-|   inst_pc_interface_top       |     0.002 |
-|   inst_pll                    |     0.100 |
-|   inst_sin_cos_generator_top  |     0.091 |
-|     inst_cordic               |     0.090 |
-|       stages[10].inst_adder_y |     0.001 |
-|       stages[11].inst_adder_x |     0.001 |
-|       stages[11].inst_adder_y |     0.001 |
-|       stages[12].inst_adder_x |     0.001 |
-|       stages[13].inst_adder_x |     0.001 |
-|       stages[14].inst_adder_x |     0.001 |
-|       stages[15].inst_adder_y |     0.001 |
-|       stages[16].inst_adder_x |     0.001 |
-|       stages[18].inst_adder_y |     0.001 |
-|       stages[19].inst_adder_y |     0.001 |
-|       stages[22].inst_adder_x |     0.001 |
-|       stages[22].inst_adder_y |     0.001 |
-|       stages[2].inst_adder_x  |     0.001 |
-|       stages[2].inst_adder_y  |     0.001 |
-|       stages[3].inst_adder_x  |     0.001 |
-|       stages[3].inst_adder_y  |     0.001 |
-|       stages[4].inst_adder_x  |     0.001 |
-|       stages[4].inst_adder_y  |     0.001 |
-|       stages[5].inst_adder_x  |     0.001 |
-|       stages[5].inst_adder_y  |     0.001 |
-|       stages[6].inst_adder_x  |     0.001 |
-|       stages[7].inst_adder_x  |     0.001 |
-|       stages[7].inst_adder_y  |     0.001 |
-|       stages[8].inst_adder_x  |     0.001 |
-|       stages[8].inst_adder_y  |     0.001 |
-|       stages[9].inst_adder_x  |     0.001 |
-|       stages[9].inst_adder_y  |     0.001 |
-+-------------------------------+-----------+
++--------------------------------+-----------+
+| Name                           | Power (W) |
++--------------------------------+-----------+
+| top                            |     0.199 |
+|   inst_pc_interface_top        |     0.002 |
+|   inst_pll                     |     0.100 |
+|   inst_signal_generator        |     0.096 |
+|     inst_sin_cos_generator_top |     0.095 |
+|       inst_cordic              |     0.093 |
++--------------------------------+-----------+
 
 

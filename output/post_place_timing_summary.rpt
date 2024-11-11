@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Wed Oct 30 13:33:06 2024
+| Date         : Mon Nov 11 14:35:01 2024
 | Host         : Acer-Spin running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -file ./output/post_place_timing_summary.rpt
 | Design       : top
@@ -53,7 +53,7 @@ Table of Contents
 3. checking pulse_width_clock (0)
 4. checking unconstrained_internal_endpoints (0)
 5. checking no_input_delay (1)
-6. checking no_output_delay (5)
+6. checking no_output_delay (8)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
@@ -90,9 +90,9 @@ Table of Contents
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (5)
+6. checking no_output_delay (8)
 -------------------------------
- There are 5 ports with no output delay specified. (HIGH)
+ There are 8 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -137,10 +137,10 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      8.570        0.000                      0                 4368        0.087        0.000                      0                 4368        2.000        0.000                       0                  2057  
+      7.663        0.000                      0                 2508       -0.124       -0.515                     21                 2508        2.000        0.000                       0                  2148  
 
 
-All user specified timing constraints are met.
+Timing constraints are not met.
 
 
 ------------------------------------------------------------------------------------------------
@@ -163,7 +163,7 @@ sys_clk_pin     {0.000 4.000}        8.000           125.000
 Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 sys_clk_pin                                                                                                                                                       2.000        0.000                       0                     1  
-  pll_clk_50_o        8.570        0.000                      0                 2352        0.087        0.000                      0                 2352        8.750        0.000                       0                  2054  
+  pll_clk_50_o        7.663        0.000                      0                 2508       -0.124       -0.515                     21                 2508        8.750        0.000                       0                  2145  
   pll_clk_fb_o                                                                                                                                                   12.633        0.000                       0                     2  
 
 
@@ -181,9 +181,8 @@ From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS
 | -----------------------
 ------------------------------------------------------------------------------------------------
 
-Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
-----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-**async_default**  pll_clk_50_o       pll_clk_50_o            15.540        0.000                      0                 2016        0.433        0.000                      0                 2016  
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
 
 
 ------------------------------------------------------------------------------------------------
@@ -221,27 +220,27 @@ High Pulse Width  Slow    PLLE2_ADV/CLKIN1  n/a            2.000         4.000  
 From Clock:  pll_clk_50_o
   To Clock:  pll_clk_50_o
 
-Setup :            0  Failing Endpoints,  Worst Slack        8.570ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.087ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        7.663ns,  Total Violation        0.000ns
+Hold  :           21  Failing Endpoints,  Worst Slack       -0.124ns,  Total Violation       -0.515ns
 PW    :            0  Failing Endpoints,  Worst Slack        8.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             8.570ns  (required time - arrival time)
-  Source:                 inst_sin_cos_generator_top/inst_cordic/r_z_reg[1][23]/C
+Slack (MET) :             7.663ns  (required time - arrival time)
+  Source:                 inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_frequency_reg[6]/C
                             (rising edge-triggered cell FDCE clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            inst_sin_cos_generator_top/inst_cordic/r_z_reg[2][23]/D
+  Destination:            inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_calc_accu_reg[15]/D
                             (rising edge-triggered cell FDCE clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             pll_clk_50_o
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            20.000ns  (pll_clk_50_o rise@20.000ns - pll_clk_50_o rise@0.000ns)
-  Data Path Delay:        11.013ns  (logic 2.707ns (24.580%)  route 8.306ns (75.420%))
-  Logic Levels:           10  (LUT1=1 LUT3=4 LUT4=2 LUT5=3)
-  Clock Path Skew:        -0.059ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.992ns = ( 25.992 - 20.000 ) 
-    Source Clock Delay      (SCD):    6.405ns
+  Data Path Delay:        12.093ns  (logic 3.149ns (26.040%)  route 8.944ns (73.960%))
+  Logic Levels:           12  (LUT2=1 LUT3=7 LUT4=1 LUT5=3)
+  Clock Path Skew:        -0.138ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    6.005ns = ( 26.005 - 20.000 ) 
+    Source Clock Delay      (SCD):    6.497ns
     Clock Pessimism Removal (CPR):    0.354ns
   Clock Uncertainty:      0.135ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -260,32 +259,36 @@ Slack (MET) :             8.570ns  (required time - arrival time)
                                                       0.088     2.886 r  inst_pll/inst_plle2_base/CLKOUT0
                          net (fo=1, estimated)        1.754     4.640    inst_pll/pll_clk_50_o
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.741 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     1.664     6.405    inst_sin_cos_generator_top/inst_cordic/r_y_reg[0][23]_0
-    SLICE_X7Y88          FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_z_reg[1][23]/C
+                         net (fo=2143, estimated)     1.756     6.497    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_frequency_reg[11]_0
+    SLICE_X37Y48         FDCE                                         r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_frequency_reg[6]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y88          FDCE (Prop_fdce_C_Q)         0.456     6.861 f  inst_sin_cos_generator_top/inst_cordic/r_z_reg[1][23]/Q
-                         net (fo=90, estimated)       0.943     7.804    inst_sin_cos_generator_top/inst_cordic/z_sign[1]_87
-    SLICE_X5Y93          LUT1 (Prop_lut1_I0_O)        0.124     7.928 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_x_i_1/O
-                         net (fo=77, estimated)       1.273     9.201    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_0/i_b[1]
-    SLICE_X6Y85          LUT4 (Prop_lut4_I2_O)        0.150     9.351 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_0/o_g_inferred_i_2/O
-                         net (fo=1, estimated)        0.515     9.866    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_0/o_g_inferred_i_2_n_0
-    SLICE_X6Y85          LUT5 (Prop_lut5_I4_O)        0.328    10.194 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_0/o_g_inferred_i_1__0/O
-                         net (fo=3, estimated)        0.806    11.000    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_4/o_c_inferred_i_3__0_0
-    SLICE_X5Y84          LUT5 (Prop_lut5_I3_O)        0.124    11.124 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_4/o_g_inferred_i_2__0/O
-                         net (fo=1, estimated)        0.151    11.275    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_4/o_g_inferred_i_2__0_n_0
-    SLICE_X5Y84          LUT4 (Prop_lut4_I3_O)        0.124    11.399 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_16/inst_gp4_4/o_g_inferred_i_1/O
-                         net (fo=3, estimated)        1.061    12.460    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_gp_2/r_z_reg[2][16]
-    SLICE_X6Y86          LUT3 (Prop_lut3_I0_O)        0.157    12.617 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_gp_2/o_c_inferred_i_2/O
-                         net (fo=5, estimated)        0.970    13.587    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/inst_gp2_0/i_c
-    SLICE_X6Y87          LUT3 (Prop_lut3_I0_O)        0.384    13.971 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/inst_gp2_0/o_c_inferred_i_2__0/O
-                         net (fo=3, estimated)        0.979    14.950    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/inst_gp4_1/r_z_reg[2][22][0]
-    SLICE_X8Y88          LUT5 (Prop_lut5_I0_O)        0.359    15.309 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/inst_gp4_1/o_c_inferred_i_3__0/O
-                         net (fo=2, estimated)        0.378    15.687    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/inst_gp4_1/out[1]
-    SLICE_X8Y88          LUT3 (Prop_lut3_I2_O)        0.348    16.035 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/inst_gp4_1/o_c_inferred_i_2__1/O
-                         net (fo=1, estimated)        0.846    16.881    inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/c[7]
-    SLICE_X8Y88          LUT3 (Prop_lut3_I2_O)        0.153    17.034 r  inst_sin_cos_generator_top/inst_cordic/stages[1].inst_adder_z/inst_cla_8/o_s[7]_INST_0/O
-                         net (fo=1, estimated)        0.384    17.418    inst_sin_cos_generator_top/inst_cordic/ri_z[2]_5[23]
-    SLICE_X8Y88          FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_z_reg[2][23]/D
+    SLICE_X37Y48         FDCE (Prop_fdce_C_Q)         0.456     6.953 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_frequency_reg[6]/Q
+                         net (fo=1, estimated)        0.996     7.949    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s0/i_data[6]
+    SLICE_X37Y48         LUT3 (Prop_lut3_I2_O)        0.152     8.101 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s0/o_y_inferred_i_10/O
+                         net (fo=2, estimated)        1.086     9.187    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s1/o_y_inferred_i_5_0[6]
+    SLICE_X38Y46         LUT3 (Prop_lut3_I2_O)        0.360     9.547 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s1/o_y_inferred_i_10/O
+                         net (fo=2, estimated)        0.791    10.338    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s2/o_y_inferred_i_3_0[6]
+    SLICE_X37Y47         LUT3 (Prop_lut3_I2_O)        0.377    10.715 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s2/o_y_inferred_i_10/O
+                         net (fo=2, estimated)        0.820    11.535    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s3/o_s_inferred_i_2[6]
+    SLICE_X36Y47         LUT3 (Prop_lut3_I0_O)        0.357    11.892 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_shifter/inst_r_mux_s3/o_y_inferred_i_11/O
+                         net (fo=4, estimated)        1.270    13.162    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_1/i_b[1]
+    SLICE_X33Y44         LUT4 (Prop_lut4_I0_O)        0.327    13.489 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_1/o_p_inferred_i_2__0/O
+                         net (fo=1, estimated)        0.480    13.969    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_1/o_p_inferred_i_2__0_n_0
+    SLICE_X33Y44         LUT5 (Prop_lut5_I4_O)        0.124    14.093 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_1/o_p_inferred_i_1__1/O
+                         net (fo=3, estimated)        0.833    14.926    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_4/o_c_inferred_i_3__0_1
+    SLICE_X34Y44         LUT5 (Prop_lut5_I0_O)        0.124    15.050 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_4/o_c_inferred_i_5__0/O
+                         net (fo=5, estimated)        0.824    15.874    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_4_n_3
+    SLICE_X34Y45         LUT3 (Prop_lut3_I1_O)        0.152    16.026 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/o_c_inferred_i_6/O
+                         net (fo=3, estimated)        0.457    16.483    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_3/o_s_inferred_i_3[0]
+    SLICE_X32Y45         LUT5 (Prop_lut5_I0_O)        0.348    16.831 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_3/o_c_inferred_i_5__3/O
+                         net (fo=2, estimated)        0.608    17.439    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_3/r_calc_accu_reg[13]
+    SLICE_X33Y45         LUT3 (Prop_lut3_I2_O)        0.124    17.563 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_3/o_c_inferred_i_2__3/O
+                         net (fo=1, estimated)        0.295    17.858    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/inst_gp4_3_n_1
+    SLICE_X35Y45         LUT3 (Prop_lut3_I2_O)        0.124    17.982 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/inst_calc_adder/o_s_inferred_i_1/O
+                         net (fo=1, estimated)        0.484    18.466    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/o_s[15]
+    SLICE_X35Y45         LUT2 (Prop_lut2_I0_O)        0.124    18.590 r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_calc_accu[15]_i_1/O
+                         net (fo=1, routed)           0.000    18.590    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/ri_calc_accu[15]
+    SLICE_X35Y45         FDCE                                         r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_calc_accu_reg[15]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock pll_clk_50_o rise edge)
@@ -298,16 +301,16 @@ Slack (MET) :             8.570ns  (required time - arrival time)
                                                       0.083    22.745 r  inst_pll/inst_plle2_base/CLKOUT0
                          net (fo=1, estimated)        1.666    24.411    inst_pll/pll_clk_50_o
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    24.502 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     1.490    25.992    inst_sin_cos_generator_top/inst_cordic/r_y_reg[0][23]_0
-    SLICE_X8Y88          FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_z_reg[2][23]/C
-                         clock pessimism              0.354    26.346    
-                         clock uncertainty           -0.135    26.211    
-    SLICE_X8Y88          FDCE (Setup_fdce_C_D)       -0.223    25.988    inst_sin_cos_generator_top/inst_cordic/r_z_reg[2][23]
+                         net (fo=2143, estimated)     1.503    26.005    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_frequency_reg[11]_0
+    SLICE_X35Y45         FDCE                                         r  inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_calc_accu_reg[15]/C
+                         clock pessimism              0.354    26.359    
+                         clock uncertainty           -0.135    26.224    
+    SLICE_X35Y45         FDCE (Setup_fdce_C_D)        0.029    26.253    inst_signal_generator/inst_sin_cos_generator_top/inst_phase_accumulator/r_calc_accu_reg[15]
   -------------------------------------------------------------------
-                         required time                         25.988    
-                         arrival time                         -17.418    
+                         required time                         26.253    
+                         arrival time                         -18.590    
   -------------------------------------------------------------------
-                         slack                                  8.570    
+                         slack                                  7.663    
 
 
 
@@ -315,20 +318,20 @@ Slack (MET) :             8.570ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.087ns  (arrival time - required time)
-  Source:                 inst_sin_cos_generator_top/inst_cordic/r_x_reg[19][23]/C
+Slack (VIOLATED) :        -0.124ns  (arrival time - required time)
+  Source:                 inst_pc_interface_top/inst_pc_interface/inst_uart_rx/r_sipo_reg[3]/C
                             (rising edge-triggered cell FDCE clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            inst_sin_cos_generator_top/inst_cordic/r_x_reg[20][23]/D
-                            (rising edge-triggered cell FDCE clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMB/I
+                            (rising edge-triggered cell RAMD32 clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             pll_clk_50_o
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (pll_clk_50_o rise@0.000ns - pll_clk_50_o rise@0.000ns)
-  Data Path Delay:        0.443ns  (logic 0.186ns (42.014%)  route 0.257ns (57.986%))
-  Logic Levels:           1  (LUT3=1)
+  Data Path Delay:        0.286ns  (logic 0.141ns (49.373%)  route 0.145ns (50.627%))
+  Logic Levels:           0  
   Clock Path Skew:        0.264ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.710ns
-    Source Clock Delay      (SCD):    2.179ns
-    Clock Pessimism Removal (CPR):    0.267ns
+    Destination Clock Delay (DCD):    2.745ns
+    Source Clock Delay      (SCD):    2.219ns
+    Clock Pessimism Removal (CPR):    0.262ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -342,14 +345,12 @@ Slack (MET) :             0.087ns  (arrival time - required time)
                                                       0.050     0.860 r  inst_pll/inst_plle2_base/CLKOUT0
                          net (fo=1, estimated)        0.739     1.599    inst_pll/pll_clk_50_o
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.625 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     0.554     2.179    inst_sin_cos_generator_top/inst_cordic/r_y_reg[0][23]_0
-    SLICE_X21Y59         FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_x_reg[19][23]/C
+                         net (fo=2143, estimated)     0.594     2.219    inst_pc_interface_top/inst_pc_interface/inst_uart_rx/r_baud_reg[8]_1
+    SLICE_X41Y49         FDCE                                         r  inst_pc_interface_top/inst_pc_interface/inst_uart_rx/r_sipo_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X21Y59         FDCE (Prop_fdce_C_Q)         0.141     2.320 r  inst_sin_cos_generator_top/inst_cordic/r_x_reg[19][23]/Q
-                         net (fo=4, estimated)        0.257     2.577    inst_sin_cos_generator_top/inst_cordic/stages[19].inst_adder_x/inst_cla_8/i_a[7]
-    SLICE_X22Y59         LUT3 (Prop_lut3_I1_O)        0.045     2.622 r  inst_sin_cos_generator_top/inst_cordic/stages[19].inst_adder_x/inst_cla_8/o_s[7]_INST_0/O
-                         net (fo=1, routed)           0.000     2.622    inst_sin_cos_generator_top/inst_cordic/ri_x[20]_57[23]
-    SLICE_X22Y59         FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_x_reg[20][23]/D
+    SLICE_X41Y49         FDCE (Prop_fdce_C_Q)         0.141     2.360 r  inst_pc_interface_top/inst_pc_interface/inst_uart_rx/r_sipo_reg[3]/Q
+                         net (fo=3, estimated)        0.145     2.505    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/DIB0
+    SLICE_X42Y50         RAMD32                                       r  inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMB/I
   -------------------------------------------------------------------    -------------------
 
                          (clock pll_clk_50_o rise edge)
@@ -362,15 +363,16 @@ Slack (MET) :             0.087ns  (arrival time - required time)
                                                       0.053     1.080 r  inst_pll/inst_plle2_base/CLKOUT0
                          net (fo=1, estimated)        0.778     1.858    inst_pll/pll_clk_50_o
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.887 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     0.823     2.710    inst_sin_cos_generator_top/inst_cordic/r_y_reg[0][23]_0
-    SLICE_X22Y59         FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_x_reg[20][23]/C
-                         clock pessimism             -0.267     2.443    
-    SLICE_X22Y59         FDCE (Hold_fdce_C_D)         0.092     2.535    inst_sin_cos_generator_top/inst_cordic/r_x_reg[20][23]
+                         net (fo=2143, estimated)     0.858     2.745    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/WCLK
+    SLICE_X42Y50         RAMD32                                       r  inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMB/CLK
+                         clock pessimism             -0.262     2.483    
+    SLICE_X42Y50         RAMD32 (Hold_ramd32_CLK_I)
+                                                      0.146     2.629    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMB
   -------------------------------------------------------------------
-                         required time                         -2.535    
-                         arrival time                           2.622    
+                         required time                         -2.629    
+                         arrival time                           2.505    
   -------------------------------------------------------------------
-                         slack                                  0.087    
+                         slack                                 -0.124    
 
 
 
@@ -386,8 +388,8 @@ Sources:            { inst_pll/inst_plle2_base/CLKOUT0 }
 Check Type        Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period        n/a     BUFG/I             n/a            2.155         20.000      17.845     BUFGCTRL_X0Y16  inst_pll/inst_bufg_clk0/I
 Max Period        n/a     PLLE2_ADV/CLKOUT0  n/a            160.000       20.000      140.000    PLLE2_ADV_X0Y1  inst_pll/inst_plle2_base/CLKOUT0
-Low Pulse Width   Slow    RAMD32/CLK         n/a            1.250         10.000      8.750      SLICE_X38Y17    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMA/CLK
-High Pulse Width  Slow    RAMD32/CLK         n/a            1.250         10.000      8.750      SLICE_X38Y17    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK         n/a            1.250         10.000      8.750      SLICE_X42Y50    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK         n/a            1.250         10.000      8.750      SLICE_X42Y50    inst_pc_interface_top/inst_pc_interface/inst_sync_fifo_rx/r_ram_reg_0_15_0_5/RAMA/CLK
 
 
 
@@ -411,147 +413,6 @@ Sources:            { inst_pll/inst_plle2_base/CLKFBOUT }
 Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period  n/a     PLLE2_ADV/CLKFBOUT  n/a            1.249         40.000      38.751     PLLE2_ADV_X0Y1  inst_pll/inst_plle2_base/CLKFBOUT
 Max Period  n/a     PLLE2_ADV/CLKFBIN   n/a            52.633        40.000      12.633     PLLE2_ADV_X0Y1  inst_pll/inst_plle2_base/CLKFBIN
-
-
-
----------------------------------------------------------------------------------------------------
-Path Group:  **async_default**
-From Clock:  pll_clk_50_o
-  To Clock:  pll_clk_50_o
-
-Setup :            0  Failing Endpoints,  Worst Slack       15.540ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.433ns,  Total Violation        0.000ns
----------------------------------------------------------------------------------------------------
-
-
-Max Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             15.540ns  (required time - arrival time)
-  Source:                 inst_sin_cos_generator_top/inst_arst_n/r_rst_reg[1]/C
-                            (rising edge-triggered cell FDCE clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            inst_sin_cos_generator_top/inst_cordic/r_x_reg[0][13]/CLR
-                            (recovery check against rising-edge clock pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             **async_default**
-  Path Type:              Recovery (Max at Slow Process Corner)
-  Requirement:            20.000ns  (pll_clk_50_o rise@20.000ns - pll_clk_50_o rise@0.000ns)
-  Data Path Delay:        3.812ns  (logic 0.773ns (20.278%)  route 3.039ns (79.722%))
-  Logic Levels:           1  (LUT1=1)
-  Clock Path Skew:        -0.108ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    6.040ns = ( 26.040 - 20.000 ) 
-    Source Clock Delay      (SCD):    6.401ns
-    Clock Pessimism Removal (CPR):    0.253ns
-  Clock Uncertainty:      0.135ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.261ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock pll_clk_50_o rise edge)
-                                                      0.000     0.000 r  
-    K17                                               0.000     0.000 r  sysclk (IN)
-                         net (fo=0)                   0.000     0.000    inst_pll/sysclk
-    K17                  IBUF (Prop_ibuf_I_O)         1.492     1.492 r  inst_pll/inst_ibuf_clk_in/O
-                         net (fo=1, estimated)        1.306     2.798    inst_pll/ibuf_sysclk_o
-    PLLE2_ADV_X0Y1       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
-                                                      0.088     2.886 r  inst_pll/inst_plle2_base/CLKOUT0
-                         net (fo=1, estimated)        1.754     4.640    inst_pll/pll_clk_50_o
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     4.741 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     1.660     6.401    inst_sin_cos_generator_top/inst_arst_n/r_rst_reg[1]_0
-    SLICE_X34Y53         FDCE                                         r  inst_sin_cos_generator_top/inst_arst_n/r_rst_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X34Y53         FDCE (Prop_fdce_C_Q)         0.478     6.879 r  inst_sin_cos_generator_top/inst_arst_n/r_rst_reg[1]/Q
-                         net (fo=1, estimated)        0.430     7.309    inst_sin_cos_generator_top/inst_cordic/r_x_reg[0][0]_0
-    SLICE_X34Y53         LUT1 (Prop_lut1_I0_O)        0.295     7.604 f  inst_sin_cos_generator_top/inst_cordic/r_run_i_1/O
-                         net (fo=1697, estimated)     2.609    10.213    inst_sin_cos_generator_top/inst_cordic/r_rst_reg[1]
-    SLICE_X5Y97          FDCE                                         f  inst_sin_cos_generator_top/inst_cordic/r_x_reg[0][13]/CLR
-  -------------------------------------------------------------------    -------------------
-
-                         (clock pll_clk_50_o rise edge)
-                                                     20.000    20.000 r  
-    K17                                               0.000    20.000 r  sysclk (IN)
-                         net (fo=0)                   0.000    20.000    inst_pll/sysclk
-    K17                  IBUF (Prop_ibuf_I_O)         1.421    21.421 r  inst_pll/inst_ibuf_clk_in/O
-                         net (fo=1, estimated)        1.241    22.662    inst_pll/ibuf_sysclk_o
-    PLLE2_ADV_X0Y1       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
-                                                      0.083    22.745 r  inst_pll/inst_plle2_base/CLKOUT0
-                         net (fo=1, estimated)        1.666    24.411    inst_pll/pll_clk_50_o
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    24.502 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     1.538    26.040    inst_sin_cos_generator_top/inst_cordic/r_y_reg[0][23]_0
-    SLICE_X5Y97          FDCE                                         r  inst_sin_cos_generator_top/inst_cordic/r_x_reg[0][13]/C
-                         clock pessimism              0.253    26.293    
-                         clock uncertainty           -0.135    26.158    
-    SLICE_X5Y97          FDCE (Recov_fdce_C_CLR)     -0.405    25.753    inst_sin_cos_generator_top/inst_cordic/r_x_reg[0][13]
-  -------------------------------------------------------------------
-                         required time                         25.753    
-                         arrival time                         -10.213    
-  -------------------------------------------------------------------
-                         slack                                 15.540    
-
-
-
-
-
-Min Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             0.433ns  (arrival time - required time)
-  Source:                 inst_sys_arst_n/r_rst_reg[5]/C
-                            (rising edge-triggered cell FDCE clocked by pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            inst_spi_master/c_reg_reg[0]/CLR
-                            (removal check against rising-edge clock pll_clk_50_o  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             **async_default**
-  Path Type:              Removal (Min at Fast Process Corner)
-  Requirement:            0.000ns  (pll_clk_50_o rise@0.000ns - pll_clk_50_o rise@0.000ns)
-  Data Path Delay:        0.613ns  (logic 0.186ns (30.363%)  route 0.427ns (69.637%))
-  Logic Levels:           1  (LUT1=1)
-  Clock Path Skew:        0.247ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.720ns
-    Source Clock Delay      (SCD):    2.211ns
-    Clock Pessimism Removal (CPR):    0.262ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock pll_clk_50_o rise edge)
-                                                      0.000     0.000 r  
-    K17                                               0.000     0.000 r  sysclk (IN)
-                         net (fo=0)                   0.000     0.000    inst_pll/sysclk
-    K17                  IBUF (Prop_ibuf_I_O)         0.259     0.259 r  inst_pll/inst_ibuf_clk_in/O
-                         net (fo=1, estimated)        0.551     0.810    inst_pll/ibuf_sysclk_o
-    PLLE2_ADV_X0Y1       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
-                                                      0.050     0.860 r  inst_pll/inst_plle2_base/CLKOUT0
-                         net (fo=1, estimated)        0.739     1.599    inst_pll/pll_clk_50_o
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     1.625 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     0.586     2.211    inst_sys_arst_n/r_rst_reg[5]_0
-    SLICE_X36Y52         FDCE                                         r  inst_sys_arst_n/r_rst_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X36Y52         FDCE (Prop_fdce_C_Q)         0.141     2.352 r  inst_sys_arst_n/r_rst_reg[5]/Q
-                         net (fo=1, estimated)        0.067     2.419    inst_spi_master/ss_reg_reg_1
-    SLICE_X37Y52         LUT1 (Prop_lut1_I0_O)        0.045     2.464 f  inst_spi_master/r_rst[1]_i_1/O
-                         net (fo=50, estimated)       0.360     2.824    inst_spi_master/r_rst_reg[5]
-    SLICE_X32Y46         FDCE                                         f  inst_spi_master/c_reg_reg[0]/CLR
-  -------------------------------------------------------------------    -------------------
-
-                         (clock pll_clk_50_o rise edge)
-                                                      0.000     0.000 r  
-    K17                                               0.000     0.000 r  sysclk (IN)
-                         net (fo=0)                   0.000     0.000    inst_pll/sysclk
-    K17                  IBUF (Prop_ibuf_I_O)         0.447     0.447 r  inst_pll/inst_ibuf_clk_in/O
-                         net (fo=1, estimated)        0.579     1.027    inst_pll/ibuf_sysclk_o
-    PLLE2_ADV_X0Y1       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
-                                                      0.053     1.080 r  inst_pll/inst_plle2_base/CLKOUT0
-                         net (fo=1, estimated)        0.778     1.858    inst_pll/pll_clk_50_o
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     1.887 r  inst_pll/inst_bufg_clk0/O
-                         net (fo=2052, estimated)     0.833     2.720    inst_spi_master/ss_reg_reg_0
-    SLICE_X32Y46         FDCE                                         r  inst_spi_master/c_reg_reg[0]/C
-                         clock pessimism             -0.262     2.458    
-    SLICE_X32Y46         FDCE (Remov_fdce_C_CLR)     -0.067     2.391    inst_spi_master/c_reg_reg[0]
-  -------------------------------------------------------------------
-                         required time                         -2.391    
-                         arrival time                           2.824    
-  -------------------------------------------------------------------
-                         slack                                  0.433    
-
-
 
 
 

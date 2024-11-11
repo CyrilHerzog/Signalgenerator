@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Wed Oct 30 13:33:29 2024
+| Date         : Mon Nov 11 14:35:49 2024
 | Host         : Acer-Spin running 64-bit major release  (build 9200)
 | Command      : report_drc -file ./output/post_imp_drc.rpt
 | Design       : top
@@ -36,22 +36,22 @@ Table of Contents
 -----------------
 RTSTAT-10#1 Warning
 No routable loads  
-449 net(s) have no routable loads. The problem bus(es) and/or net(s) are inst_sin_cos_generator_top/inst_cordic/stages[0].inst_adder_y/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[12].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[14].inst_adder_x/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[16].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[19].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[21].inst_adder_x/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[21].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[22].inst_adder_x/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[2].inst_adder_y/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[2].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[4].inst_adder_y/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[5].inst_adder_y/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[5].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[6].inst_adder_z/inst_gp_2/o_c0[1],
-inst_sin_cos_generator_top/inst_cordic/stages[9].inst_adder_x/inst_gp_2/o_c0[1]
- (the first 15 of 368 listed nets/buses).
+452 net(s) have no routable loads. The problem bus(es) and/or net(s) are inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[0].inst_adder_x/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[0].inst_adder_y/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[0].inst_adder_z/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[11].inst_adder_x/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[12].inst_adder_z/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[13].inst_adder_y/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[18].inst_adder_z/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[20].inst_adder_z/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[21].inst_adder_z/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[3].inst_adder_y/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[4].inst_adder_x/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[4].inst_adder_z/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[5].inst_adder_x/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[7].inst_adder_x/inst_gp_2/o_c0[1],
+inst_signal_generator/inst_sin_cos_generator_top/inst_cordic/stages[8].inst_adder_x/inst_gp_2/o_c0[1]
+ (the first 15 of 371 listed nets/buses).
 Related violations: <none>
 
 ZPS7-1#1 Warning
