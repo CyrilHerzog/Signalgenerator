@@ -69,16 +69,14 @@ wire [15:0] sine_out;
         .ramp_out(ramp_out)
     );
 
-    sin_cos_generator_top #(
-        .F_CLK          (50_000_000)
-    ) inst_sin_cos_generator_top (
+    sin_cos_generator_top inst_sin_cos_generator_top (
         .i_clk          (clk), 
         .i_arst_n       (rst_n),
         .i_enable       (1'b1),
-        .i_freq         (frequency[4:0]),
+        .i_frequency    (frequency[11:0]),
         .i_amplitude    (24'd5093852), // (2^15 - 1) / 1.64676 24'd5093852
-        .i_phase_offset (24'd0), // pi = 8388
-        .i_amp_offset   (16'd32767),
+        .i_phase_offset (24'd0),
+        .i_amp_offset   (16'd32768),
         .o_cos          (sine_out),
         .o_sin          (),
         .o_valid        ()

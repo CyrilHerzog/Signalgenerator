@@ -118,7 +118,7 @@ signal_generator inst_signal_generator (
     .frequency  (inst_pc_interface_top.o_bank_data[47:32]),
     .amplitude  (16'h00ff),
     .duty_cycle (inst_pc_interface_top.o_bank_data[55:48]),
-    .sel        (inst_pc_interface_top.o_bank_data[17:16]), // 00 rechteck 01 sägezahn , 10 sin
+    .sel        (inst_pc_interface_top.o_bank_data[17:16]), // 00 rectangle 01 triangle , 10 sine
     .led_on     (led[0]),
     .led_rect   (led[1]),
     .led_ramp   (led[2]),
@@ -131,15 +131,18 @@ signal_generator inst_signal_generator (
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SPI
 
-reg [1:0] r_pulse;
+reg [1:0] r_spi_wait_count;
+wire[1:0] ri_spi_wait_count;
 wire spi_enable;
 
-
+//
 always@(posedge inst_pll.o_bufg_clk_50) begin 
-    r_pulse <= r_pulse + 1;
+    r_spi_wait_count <= ri_spi_wait_count;
 end
 
-assign spi_enable = &r_pulse;
+assign ri_spi_wait_count = r_spi_wait_count + 2'b01;
+//
+assign spi_enable = &r_spi_wait_count;
 
 
 SPI_MASTER #(
@@ -162,16 +165,23 @@ SPI_MASTER #(
 	.DONE               ()  
 );
 
- 
-reg r_ldac;
-reg r_ldac_1;
 
+//
+
+reg[1:0] r_ldac;
+wire[1:0] ri_ldac;
+
+//
 always@(posedge inst_pll.o_bufg_clk_50) begin
-    r_ldac <= ~inst_spi_master.DONE;
-    r_ldac_1 <= r_ldac;
+    r_ldac[0] <= ri_ldac[0];
+    r_ldac[1] <= ri_ldac[1];
 end
 
-assign dac_ldac = r_ldac_1;
+//
+assign ri_ldac[0] = ~inst_spi_master.DONE;
+assign ri_ldac[1] = r_ldac[0];
+//
+assign dac_ldac = r_ldac[1]; // confirm data transfer on the dac
 
 
 
