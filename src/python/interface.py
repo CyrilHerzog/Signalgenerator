@@ -26,9 +26,9 @@ import time
 
 
 #
-SIGNAL_TYPE = 2      #1 2
-FREQUENCY   = 10  # 10  #0x0fff
-DUTY_CYCLE  = 10
+SIGNAL_TYPE = 0      #1 2
+FREQUENCY   = 0x0fff  # 3 - 4095  #0x0fff
+DUTY_CYCLE  = 80
 
 
 
