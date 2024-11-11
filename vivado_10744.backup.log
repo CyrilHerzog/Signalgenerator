@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Nov 11 15:24:26 2024
-# Process ID: 9436
+# Start of session at: Mon Nov 11 15:23:38 2024
+# Process ID: 10744
 # Current directory: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator
 # Command line: vivado.exe -mode batch -source prog.tcl
 # Log file: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/vivado.log
@@ -13,6 +13,7 @@
 #-----------------------------------------------------------
 source prog.tcl
 # open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 435.223 ; gain = 165.770
 # connect_hw_server
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
 INFO: [Labtools 27-2222] Launching hw_server...
@@ -40,10 +41,12 @@ ECHO ist ausgeschaltet (OFF).
 
 
 
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 461.305 ; gain = 26.082
 # current_hw_target
+WARNING: [Labtools 27-1339] No hardware targets exist on the server [Check to make sure the cable targets connected to this machine are properly connected
+and powered up, then use the disconnect_hw_server and connect_hw_server commands
+to re-register the hardware targets.
+]
 # open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351AF24F2A
-# set_property PROGRAM.FILE ./output/top.bit [current_hw_device]
-# program_hw_devices [current_hw_device]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 11 15:24:40 2024...
+ERROR: [Labtoolstcl 44-469] There is no current hw_target.
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 11 15:23:51 2024...

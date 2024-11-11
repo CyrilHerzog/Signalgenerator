@@ -3,12 +3,14 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Nov 11 15:24:26 2024
-# Process ID: 9436
+# Start of session at: Mon Nov 11 14:32:39 2024
+# Process ID: 5956
 # Current directory: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator
-# Command line: vivado.exe -mode batch -source prog.tcl
+# Command line: vivado.exe -mode batch -source build.tcl
 # Log file: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator/vivado.log
 # Journal file: C:/Users/cyril/Desktop/My/Workspace/esL1/esL1_SignalGenerator\vivado.jou
 # Running On: Acer-Spin, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 12, Host memory: 16870 MB
 #-----------------------------------------------------------
-source prog.tcl
+source build.tcl
+report_utilization -name utilization_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
